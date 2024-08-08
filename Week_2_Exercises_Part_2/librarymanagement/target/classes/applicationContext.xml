@@ -14,5 +14,15 @@
 
     <bean id="loggingAspect" class="com.library.aspect.LoggingAspect" />
 
+    <bean id="bookService" class="com.library.service.BookService">
+        <constructor-arg ref="bookRepository" />
+    </bean>
+
+    <bean id="bookService" class="com.library.service.BookService">
+        <property name="bookRepository" ref="bookRepository" />
+    </bean>
+
+    <context:component-scan base-package="com.library" />
+
     <aop:aspectj-autoproxy />
 </beans>
